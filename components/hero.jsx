@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 
+import { SignedIn, SignedOut } from "@clerk/nextjs";
+
 const HeroSection = () => {
   return (
     <section className="min-h-screen flex items-center justify-center px-4 relative pt-20 overflow-hidden">
@@ -70,26 +72,46 @@ const HeroSection = () => {
                 "linear-gradient(to right, #32484F, #233A41, #CAA166)",
             }}
           >
-            <Link href="/sign-up">
-              <span className="relative z-10 flex items-center gap-2">
-                GET STARTED
-                <svg
-                  className="w-5 h-5 group-hover:translate-x-1 transition-transform"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M13 7l5 5m0 0l-5 5m5-5H6"
-                  />
-                </svg>
-              </span>
-              {/* Shimmer effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-            </Link>
+            <div className="relative z-10 flex items-center gap-2">
+              <SignedIn>
+                <Link href="/dashboard" className="flex items-center gap-2">
+                  GET STARTED
+                  <svg
+                    className="w-5 h-5 group-hover:translate-x-1 transition-transform"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M13 7l5 5m0 0l-5 5m5-5H6"
+                    />
+                  </svg>
+                </Link>
+              </SignedIn>
+              <SignedOut>
+                <Link href="/sign-up" className="flex items-center gap-2">
+                  GET STARTED
+                  <svg
+                    className="w-5 h-5 group-hover:translate-x-1 transition-transform"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M13 7l5 5m0 0l-5 5m5-5H6"
+                    />
+                  </svg>
+                </Link>
+              </SignedOut>
+            </div>
+            {/* Shimmer effect */}
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
           </Button>
         </div>
       </div>

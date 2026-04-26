@@ -4,6 +4,7 @@ import { howItWorksData } from "@/data/landing";
 import HeroSection from "@/components/hero";
 import Link from "next/link";
 import { PieChart, BarChart3, Receipt, Zap, Globe, Bell } from "lucide-react";
+import { SignedIn, SignedOut } from "@clerk/nextjs";
 
 const LandingPage = () => {
   return (
@@ -613,39 +614,72 @@ const LandingPage = () => {
               Decision-making.
             </p>
 
-            {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-2">
-              <Link href="/dashboard">
-                <Button
-                  size="lg"
-                  className="group relative px-8 py-6 text-lg bg-white hover:bg-[#EEF6F8] font-semibold rounded-full shadow-2xl transition-all duration-300 hover:scale-105 overflow-hidden"
-                  style={{ color: "#32484F" }}
-                >
-                  <span className="relative z-10 flex items-center gap-2">
-                    Let&apos;s Get Started
-                    <svg
-                      className="w-5 h-5 group-hover:translate-x-1 transition-transform"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M13 7l5 5m0 0l-5 5m5-5H6"
-                      />
-                    </svg>
-                  </span>
-                  {/* Hover Effect */}
-                  <div
-                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                    style={{
-                      background: "linear-gradient(to right, #EEF6F8, #DDE4E5)",
-                    }}
-                  ></div>
-                </Button>
-              </Link>
+              <SignedIn>
+                <Link href="/dashboard">
+                  <Button
+                    size="lg"
+                    className="group relative px-8 py-6 text-lg bg-white hover:bg-[#EEF6F8] font-semibold rounded-full shadow-2xl transition-all duration-300 hover:scale-105 overflow-hidden"
+                    style={{ color: "#32484F" }}
+                  >
+                    <span className="relative z-10 flex items-center gap-2">
+                      Let&apos;s Get Started
+                      <svg
+                        className="w-5 h-5 group-hover:translate-x-1 transition-transform"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M13 7l5 5m0 0l-5 5m5-5H6"
+                        />
+                      </svg>
+                    </span>
+                    <div
+                      className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                      style={{
+                        background: "linear-gradient(to right, #EEF6F8, #DDE4E5)",
+                      }}
+                    ></div>
+                  </Button>
+                </Link>
+              </SignedIn>
+
+              <SignedOut>
+                <Link href="/sign-up">
+                  <Button
+                    size="lg"
+                    className="group relative px-8 py-6 text-lg bg-white hover:bg-[#EEF6F8] font-semibold rounded-full shadow-2xl transition-all duration-300 hover:scale-105 overflow-hidden"
+                    style={{ color: "#32484F" }}
+                  >
+                    <span className="relative z-10 flex items-center gap-2">
+                      Let&apos;s Get Started
+                      <svg
+                        className="w-5 h-5 group-hover:translate-x-1 transition-transform"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M13 7l5 5m0 0l-5 5m5-5H6"
+                        />
+                      </svg>
+                    </span>
+                    <div
+                      className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                      style={{
+                        background: "linear-gradient(to right, #EEF6F8, #DDE4E5)",
+                      }}
+                    ></div>
+                  </Button>
+                </Link>
+              </SignedOut>
             </div>
           </div>
         </div>
