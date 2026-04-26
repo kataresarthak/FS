@@ -63,18 +63,18 @@ const HeroSection = () => {
 
         {/* CTA Button */}
         <div className="flex justify-center md:justify-start">
-          <Button
-            asChild
-            size="lg"
-            className="group relative px-10 py-6 text-lg font-semibold rounded-full text-white shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 overflow-hidden hover-gradient-button"
-            style={{
-              background:
-                "linear-gradient(to right, #32484F, #233A41, #CAA166)",
-            }}
-          >
-            <div className="relative z-10 flex items-center gap-2">
-              <SignedIn>
-                <Link href="/dashboard" className="flex items-center gap-2">
+          <SignedIn>
+            <Button
+              asChild
+              size="lg"
+              className="group relative px-10 py-6 text-lg font-semibold rounded-full text-white shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 overflow-hidden hover-gradient-button"
+              style={{
+                background:
+                  "linear-gradient(to right, #32484F, #233A41, #CAA166)",
+              }}
+            >
+              <Link href="/dashboard">
+                <span className="relative z-10 flex items-center gap-2">
                   GET STARTED
                   <svg
                     className="w-5 h-5 group-hover:translate-x-1 transition-transform"
@@ -89,10 +89,23 @@ const HeroSection = () => {
                       d="M13 7l5 5m0 0l-5 5m5-5H6"
                     />
                   </svg>
-                </Link>
-              </SignedIn>
-              <SignedOut>
-                <Link href="/sign-up" className="flex items-center gap-2">
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+              </Link>
+            </Button>
+          </SignedIn>
+          <SignedOut>
+            <Button
+              asChild
+              size="lg"
+              className="group relative px-10 py-6 text-lg font-semibold rounded-full text-white shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 overflow-hidden hover-gradient-button"
+              style={{
+                background:
+                  "linear-gradient(to right, #32484F, #233A41, #CAA166)",
+              }}
+            >
+              <Link href="/sign-up">
+                <span className="relative z-10 flex items-center gap-2">
                   GET STARTED
                   <svg
                     className="w-5 h-5 group-hover:translate-x-1 transition-transform"
@@ -107,12 +120,11 @@ const HeroSection = () => {
                       d="M13 7l5 5m0 0l-5 5m5-5H6"
                     />
                   </svg>
-                </Link>
-              </SignedOut>
-            </div>
-            {/* Shimmer effect */}
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-          </Button>
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+              </Link>
+            </Button>
+          </SignedOut>
         </div>
       </div>
     </section>
