@@ -2,10 +2,8 @@
 
 import { useState, useMemo, useEffect } from "react";
 import {
-  BarChart,
   Bar,
   ComposedChart,
-  Cell,
   XAxis,
   YAxis,
   CartesianGrid,

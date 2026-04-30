@@ -1,6 +1,5 @@
 "use client";
 
-import { ArrowUpRight } from "lucide-react";
 import { Switch } from "@/components/ui/switch";
 import { useEffect } from "react";
 import useFetch from "@/hooks/use-fetch";
